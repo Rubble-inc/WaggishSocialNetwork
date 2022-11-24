@@ -1,6 +1,7 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
+from django.db import models
+
+from post.models import Post
 
 
 class Friendship(models.Model):
@@ -14,16 +15,6 @@ class Person(AbstractUser):
 
 
 class UserProfile(models.Model):
+    posts = models.ForeignKey(Post, on_delete=models.CASCADE)
     info = models.TextField(blank=True)
     user = models.OneToOneField(Person, on_delete=models.CASCADE)
-
-
-
-
-
-
-
-
-
-
-
