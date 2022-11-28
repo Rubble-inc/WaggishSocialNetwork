@@ -1,6 +1,7 @@
 from django.contrib.auth import login, logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+
 from .forms import RegisterUserForm, LoginUserForm
 
 
@@ -28,13 +29,13 @@ def authorization(request):
             user = form.get_user()
             login(request=request, user=user)
 
-          #  return redirect('start')
+            #  return redirect('start')
             return HttpResponse('well done')
 
     return render(request, 'user/register.html', {'form': form})
 
 
+
 def logout_user(request):
     logout(request)
-    return redirect('log')
-
+    return redirect('login')

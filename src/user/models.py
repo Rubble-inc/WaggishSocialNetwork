@@ -10,7 +10,7 @@ class Friendship(models.Model):
 
 class Person(AbstractUser):
     photo = models.ImageField(blank=True, upload_to='media/photos/')
-    friends = models.ForeignKey(Friendship, related_name='friends', on_delete=models.PROTECT, blank=True)
+    friends = models.ForeignKey(Friendship, related_name='friends', on_delete=models.PROTECT, blank=True, null=True)
 
 
 class UserProfile(models.Model):
