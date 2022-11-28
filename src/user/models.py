@@ -15,6 +15,6 @@ class Person(AbstractUser):
 
 
 class UserProfile(models.Model):
-    posts = models.ForeignKey(Post, on_delete=models.CASCADE)
+    posts = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True)
     info = models.TextField(blank=True)
     user = models.OneToOneField(Person, on_delete=models.CASCADE)
